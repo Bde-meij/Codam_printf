@@ -1,1 +1,1 @@
-Recreation of the printf function from scratch
+Recreation of the printf function in c from scratch
