@@ -1,10 +1,10 @@
 Recreation of the printf function in c from scratch
 
 to try the program, first run "make" (needs bash, use git bash if on windows)\
-if ready, run the program with "./testprint"\
+if ready, run the program with "./testprint"
 
 to try different arguments and combinations, edit the "main.c" file and \
-afterwards run "make re" to recompile\
+afterwards run "make re" to recompile
 
 arguments are:\
 %c Prints a single character.\
@@ -15,4 +15,4 @@ arguments are:\
 %u Prints an unsigned decimal (base 10) number.\
 %x Prints a number in hexadecimal (base 16) lowercase format.\
 %X Prints a number in hexadecimal (base 16) uppercase format.\
-%% Prints a percent sign.\
+%% Prints a percent sign.
