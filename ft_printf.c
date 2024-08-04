@@ -39,31 +39,31 @@ static void	ft_handlepercent(const char *fa, int *i, int *len)
 	}
 }
 
-static void	handlesigns(const char *fa, va_list arglist, int *i, int *len)
+static void	handlesigns(const char *fa, va_list *arglist, int *i, int *len)
 {
 	ft_handlepercent(fa, i, len);
 	if ((fa[*i + 1] == 'c') && (fa[*i] == '%'))
-		*i += ft_charcount(va_arg(arglist, int), len);
+		*i += ft_charcount(va_arg(*arglist, int), len);
 	if ((fa[*i + 1] == 's') && (fa[*i] == '%'))
-		*i += ft_stringcount(va_arg(arglist, char *), len);
+		*i += ft_stringcount(va_arg(*arglist, char *), len);
 	if ((fa[*i + 1] == 'x' || fa[*i + 1] == 'X') && (fa[*i] == '%'))
 	{
-		ft_hexnum(va_arg(arglist, unsigned int), fa[*i + 1], len);
+		ft_hexnum(va_arg(*arglist, unsigned int), fa[*i + 1], len);
 		*i += 1;
 	}
 	if ((fa[*i + 1] == 'p') && (fa[*i] == '%'))
 	{
-		ft_hexnum(va_arg(arglist, unsigned long int), fa[*i + 1], len);
+		ft_hexnum(va_arg(*arglist, unsigned long int), fa[*i + 1], len);
 		*i += 1;
 	}
 	if ((fa[*i + 1] == 'u') && (fa[*i] == '%'))
 	{
-		ft_decnum(va_arg(arglist, unsigned int), len);
+		ft_decnum(va_arg(*arglist, unsigned int), len);
 		*i += 1;
 	}
 	if ((fa[*i + 1] == 'd' || fa[*i + 1] == 'i') && (fa[*i] == '%'))
 	{
-		ft_decnum(va_arg(arglist, int), len);
+		ft_decnum(va_arg(*arglist, int), len);
 		*i += 1;
 	}
 }
@@ -72,19 +72,19 @@ int	ft_printf(const char *fa, ...)
 {
 	va_list	arglist;
 	int		i;
-	int		lengte;
+	int		length;
 
 	i = 0;
-	lengte = 0;
+	length = 0;
 	va_start(arglist, fa);
 	while (fa[i])
 	{
 		if (fa[i] == '%')
-			handlesigns(fa, arglist, &i, &lengte);
+			handlesigns(fa, &arglist, &i, &length);
 		else
-			ft_charcount(fa[i], &lengte);
+			ft_charcount(fa[i], &length);
 		i++;
 	}
 	va_end(arglist);
-	return (lengte);
+	return (length);
 }
