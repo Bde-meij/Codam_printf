@@ -1,7 +1,8 @@
 Recreation of the printf function in c from scratch
 
-to try the program, first run "make" (needs bash, use git bash if on windows)\
-if ready, run the program with "./testprint"
+(the following are 'bash' commands)\
+to try the program, first run "make"\
+if ready, run the program with "./testprint.exe" on windows or "./testprint.o" on linux/mac
 
 to try different arguments and combinations, edit the "main.c" file and \
 afterwards run "make re" to recompile
