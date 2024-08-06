@@ -17,7 +17,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f testprint.*
+	rm -f testprint*
 
 re: fclean all
 
